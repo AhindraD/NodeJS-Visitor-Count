@@ -6,6 +6,7 @@ const server = http.createServer((req, res) => {
     let path = '';
     count++;
     if (req.url === '/style.css') {
+        count -= 2;
         res.setHeader("Content-Type", "text/css");
         fs.readFile('./views/style.css', { encoding: 'utf-8' }, (err, data) => {
             if (err) {
@@ -32,8 +33,8 @@ const server = http.createServer((req, res) => {
                 path += './Views/contact.html'
                 break;
 
-            case '/products':
-                path += './Views/products.html'
+            case '/product':
+                path += './Views/product.html'
                 break;
 
             default:
@@ -49,7 +50,7 @@ const server = http.createServer((req, res) => {
             res.write(data)
             res.write(`
             <script>
-            document.querySelector(".counter").innerHTML = "💠Website Visited: ${count} times";
+            document.querySelector(".counter").innerHTML = "<h2>💠Website Visited: ${count} times💠</h2>";
             </script>
             `)
             res.end()
