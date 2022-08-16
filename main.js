@@ -21,18 +21,22 @@ const server = http.createServer((req, res) => {
         switch (req.url) {
 
             case '/':
+                count++;
                 path += './Views/home.html'
                 break;
 
             case '/home':
+                count++;
                 path += './Views/home.html'
                 break;
 
             case '/contact':
+                count++;
                 path += './Views/contact.html'
                 break;
 
             case '/product':
+                count++;
                 path += './Views/product.html'
                 break;
 
@@ -48,12 +52,12 @@ const server = http.createServer((req, res) => {
             }
             res.write(data);
 
-            count++;
             res.write(`
             <script>
             document.querySelector(".counter").innerHTML = "<h2>💠Website Visited: ${count} times💠</h2>";
             </script>
             `);
+
             res.end()
         })
     }
