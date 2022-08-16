@@ -4,9 +4,7 @@ let count = 0;
 
 const server = http.createServer((req, res) => {
     let path = '';
-    count++;
     if (req.url === '/style.css') {
-        count -= 2;
         res.setHeader("Content-Type", "text/css");
         fs.readFile('./views/style.css', { encoding: 'utf-8' }, (err, data) => {
             if (err) {
@@ -14,11 +12,12 @@ const server = http.createServer((req, res) => {
                 res.write('Error', err.message)
                 res.end()
             }
-            res.write(data)
-            res.end()
+            res.write(data);
+            res.end();
         })
     }
     else {
+
         switch (req.url) {
 
             case '/':
@@ -47,12 +46,14 @@ const server = http.createServer((req, res) => {
                 res.write('Server Error' + err.message)
                 res.end()
             }
-            res.write(data)
+            res.write(data);
+
+            count++;
             res.write(`
             <script>
             document.querySelector(".counter").innerHTML = "<h2>💠Website Visited: ${count} times💠</h2>";
             </script>
-            `)
+            `);
             res.end()
         })
     }
