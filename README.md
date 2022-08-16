@@ -1,5 +1,5 @@
 Create a NodeJS powered website which looks like following:
-![](https://i.imgur.com/VRa8w6R.png)
+![](https://github.com/AhindraD/NodeJS-Visitor-Count/blob/master/node-visits.png)
 
 
 Everytime you visit a page it should increment the counter.

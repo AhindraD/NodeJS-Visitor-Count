@@ -42,8 +42,8 @@ const server = http.createServer((req, res) => {
         }
         fs.readFile(path, { encoding: 'utf-8' }, (err, data) => {
             if (err) {
-                console.log('error', err.message)
-                res.write('Server Error' + err.message)
+                console.log('Error', err.message)
+                res.write('Error', err.message)
                 res.end()
             }
             res.write(data);
