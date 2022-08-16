@@ -17,9 +17,7 @@ const server = http.createServer((req, res) => {
         })
     }
     else {
-
         switch (req.url) {
-
             case '/':
                 count++;
                 path += './Views/home.html'
@@ -51,14 +49,12 @@ const server = http.createServer((req, res) => {
                 res.end()
             }
             res.write(data);
-
             res.write(`
             <script>
             document.querySelector(".counter").innerHTML = "<h2>💠Website Visited: ${count} times💠</h2>";
             </script>
             `);
-
-            res.end()
+            res.end();
         })
     }
 })
